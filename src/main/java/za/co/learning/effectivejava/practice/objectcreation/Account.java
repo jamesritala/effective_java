@@ -1,5 +1,7 @@
 package za.co.learning.effectivejava.practice.objectcreation;
 
+import java.sql.Date;
+
 public class Account {
 
     private long accountNumber;
@@ -7,6 +9,7 @@ public class Account {
     private String branch;
     private double balance;
     private double interestRate;
+    private Date dateOpened;
 
     public static class Builder{
         private long accountNumber;
@@ -14,6 +17,7 @@ public class Account {
         private String branch;
         private double balance;
         private double interestRate;
+        private Date dateOpened;
 
         public Builder(long accountNumber){
             this.accountNumber=accountNumber;
@@ -38,18 +42,23 @@ public class Account {
             return this;
         }
 
+        public Builder dateOpened(Date dateOpened){
+            this.dateOpened=dateOpened;
+            return this;
+        }
+
         public Account build(){
-            Account account=new Account();
-            account.accountNumber=this.accountNumber;
-            account.branch=this.branch;
-            account.owner=this.owner;
-            account.balance=this.balance;
-            account.interestRate=this.interestRate;
-            return account;
+            return new Account(this);
         }
     }
-    
-    private Account(){
+
+    private Account(Builder builder){
+        accountNumber=this.accountNumber;
+        branch=this.branch;
+        owner=this.owner;
+        balance=this.balance;
+        interestRate=this.interestRate;
+        dateOpened=this.dateOpened;
     }
 
 }
