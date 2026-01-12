@@ -53,12 +53,35 @@ public class Account {
     }
 
     private Account(Builder builder){
-        accountNumber=this.accountNumber;
-        branch=this.branch;
-        owner=this.owner;
-        balance=this.balance;
-        interestRate=this.interestRate;
-        dateOpened=this.dateOpened;
+        accountNumber=builder.accountNumber;
+        branch=builder.branch;
+        owner=builder.owner;
+        balance=builder.balance;
+        interestRate=builder.interestRate;
+        dateOpened=builder.dateOpened;
     }
 
+    public long getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public Date getDateOpened() {
+        return dateOpened;
+    }
 }

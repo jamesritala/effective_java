@@ -12,5 +12,7 @@ public class BuilderTest {
                 .interest(7.5)
                 .dateOpened(Date.valueOf(LocalDate.now()))
                 .build();
+
+        System.out.println("Account Interest: " + account.getInterestRate());
     }
 }
